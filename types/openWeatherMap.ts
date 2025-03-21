@@ -5,14 +5,14 @@ export interface Forecast5Response {
   cod: string;
   message: number;
   cnt: number;
-  list: ForecastItem[];
+  list: IForecastItem[];
   city: CityInfo;
 }
 
 /**
  * Individual forecast item (3-hour period)
  */
-export interface ForecastItem {
+export interface IForecastItem {
   dt: number; // Unix timestamp
   main: {
     temp: number;
@@ -23,7 +23,7 @@ export interface ForecastItem {
     sea_level: number;
     grnd_level: number;
     humidity: number;
-    temp_kf: number; // Temperature Kf
+    temp_kf?: number; // Temperature Kf
   };
   weather: WeatherCondition[];
   clouds: {
@@ -36,14 +36,16 @@ export interface ForecastItem {
   };
   visibility: number; // Visibility in meters
   rain?: {
+    '1h'?: number; // Rain volume for 1 hour in mm (optional)
     '3h'?: number; // Rain volume for 3 hours in mm (optional)
   };
   snow?: {
+    '1h'?: number; // Snow volume for 1 hour in mm (optional)
     '3h'?: number; // Snow volume for 3 hours in mm (optional)
   };
 
   // forecast-specific properties
-  pop: number; // Probability of precipitation
+  pop?: number; // Probability of precipitation
   sys: {
     pod?: string; // Part of day ('d' for day, 'n' for night)
     type?: number; // Internal parameter
@@ -52,18 +54,18 @@ export interface ForecastItem {
     sunrise?: number; // Sunrise time, unix, UTC
     sunset?: number; // Sunset time, unix, UTC
   };
-  dt_txt: string; // Date and time in text format
+  dt_txt?: string; // Date and time in text format
 
   // current weather-specific properties
-  coord: {
+  coord?: {
     lon: number; // Longitude
     lat: number; // Latitude
   };
-  base: string; // Internal parameter
-  timezone: number; // Shift in seconds from UTC
-  id: number; // City ID
-  name: string; // City name
-  cod: number; // Internal parameter
+  base?: string; // Internal parameter
+  timezone?: number; // Shift in seconds from UTC
+  id?: number; // City ID
+  name?: string; // City name
+  cod?: number; // Internal parameter
 }
 
 /**

@@ -1,4 +1,4 @@
 export interface GeoParams {
-  lat: string;
-  lon: string;
+  lat: string | number;
+  lon: string | number;
 }

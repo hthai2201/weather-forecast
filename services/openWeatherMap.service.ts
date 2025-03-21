@@ -1,6 +1,6 @@
 import {
   Forecast5Response,
-  ForecastItem,
+  IForecastItem,
   GeocodingResponse,
 } from '@/types/openWeatherMap';
 import { getQueryParams } from '@/utils/service';
@@ -27,7 +27,7 @@ class OpenWeatherMapService {
       true,
     );
 
-    return fetcher<ForecastItem>(`${this.baseUrl}/data/2.5/weather${query}`, {
+    return fetcher<IForecastItem>(`${this.baseUrl}/data/2.5/weather${query}`, {
       headers: this.headers,
     });
   }

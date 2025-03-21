@@ -1,7 +1,11 @@
 import { getQueryParams } from '@/utils/service';
 import fetcher from './fetcher';
 import { GeoParams } from '@/types/params';
-import { ForecastItem } from '@/types/openWeatherMap';
+import {
+  IForecastItem,
+  GeocodingResponse,
+  Forecast5Response,
+} from '@/types/openWeatherMap';
 import { BEApiPaths } from './api.paths';
 
 type Headers = Record<string, string>;
@@ -21,7 +25,7 @@ class ApiService {
       true,
     );
 
-    return fetcher<ForecastItem>(
+    return fetcher<IForecastItem>(
       `${this.baseUrl}${BEApiPaths.getCurrentWeather}${queryStr}`,
       {
         headers: this.headers,
@@ -37,7 +41,7 @@ class ApiService {
       true,
     );
 
-    return fetcher<ForecastItem>(
+    return fetcher<Forecast5Response>(
       `${this.baseUrl}${BEApiPaths.getForecast5}${queryStr}`,
       {
         headers: this.headers,
@@ -52,7 +56,7 @@ class ApiService {
       true,
     );
 
-    return fetcher<ForecastItem>(
+    return fetcher<GeocodingResponse>(
       `${this.baseUrl}${BEApiPaths.getGeo}${queryStr}`,
       {
         headers: this.headers,

@@ -1,8 +1,10 @@
+import { mockCurrentWeather } from '@/lib/mock-data';
 import { openWeatherMapService } from '@/services/openWeatherMap.service';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
   try {
+    return NextResponse.json(mockCurrentWeather);
     // Get query parameter from the URL
 
     const lat = req.nextUrl.searchParams.get('lat') || '';
