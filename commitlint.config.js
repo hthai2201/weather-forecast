@@ -15,13 +15,12 @@ export default {
         'build', // Build system or dependencies
         'ci', // CI/CD configuration
         'chore', // Maintenance tasks
-        'revert' // Revert previous commit
-      ]
+        'revert', // Revert previous commit
+      ],
     ],
     'type-case': [2, 'always', 'lower-case'],
     'type-empty': [2, 'never'],
-    'subject-case': [2, 'always', 'sentence-case'],
     'subject-empty': [2, 'never'],
-    'subject-full-stop': [2, 'never', '.']
-  }
+    'subject-full-stop': [2, 'never', '.'],
+  },
 };

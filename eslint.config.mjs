@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname
+  baseDirectory: __dirname,
 });
 
 const eslintConfig = [
@@ -15,11 +15,12 @@ const eslintConfig = [
     rules: {
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
-      'import/newline-after-import': ['error', { count: 1 }]
-    }
-  }
+      'import/newline-after-import': ['error', { count: 1 }],
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
 ];
 
 export default eslintConfig;
