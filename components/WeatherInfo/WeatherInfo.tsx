@@ -10,14 +10,35 @@ import useGetGeo from '@/hooks/apis/useGetGeo';
 import { GeoLocation } from '@/types/openWeatherMap';
 import { useDebounceValue } from '@/hooks/useDebounceValue';
 import { DEFAULT_GEOLOCATION, DEFAULT_LOCATION } from '@/constants/default';
+import SearchHistoryStorage from '@/storages/searchHistoryStorage';
 
-const Home = () => {
-  const [inputValue, setInputValue] = useState(DEFAULT_LOCATION);
+interface WeatherInfoProps {
+  location?: string;
+  lat?: string;
+  lon?: string;
+}
+const WeatherInfo = (props: WeatherInfoProps) => {
+  const { location: initialLocation, lat: initialLat, lon: initialLon } = props;
+  const [inputValue, setInputValue] = useState(
+    initialLocation || DEFAULT_LOCATION,
+  );
   const [q] = useDebounceValue(inputValue, 500);
 
-  const [selectedCity, setSelectedCity] = useState<GeoLocation | null>(
-    DEFAULT_GEOLOCATION,
-  );
+  const [selectedCity, setSelectedCity] = useState<GeoLocation | null>(() => {
+    if (initialLat && initialLon && initialLocation) {
+      const [name, country] = initialLocation.split(', ');
+      return {
+        name,
+        country,
+        lat: parseFloat(initialLat),
+        lon: parseFloat(initialLon),
+      };
+    }
+    if (initialLocation) {
+      return null;
+    }
+    return DEFAULT_GEOLOCATION;
+  });
   // Get geo data based on search input
   const { data: geoData, isLoading: isGeoLoading } = useGetGeo(q);
   const geoParams = {
@@ -33,6 +54,7 @@ const Home = () => {
 
   const handleSelectCity = (location: GeoLocation) => {
     setSelectedCity(location);
+    SearchHistoryStorage.appendItem(location);
   };
 
   return (
@@ -64,4 +86,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default WeatherInfo;
