@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import CombineProviders from '@/providers/providers';
 import Header from '@/components/common/Header';
+import { Suspense } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,7 +35,7 @@ export default function RootLayout({
           <div className="flex h-screen flex-col">
             <Header />
             <main className="min-h-0 w-full flex-1 overflow-y-auto">
-              {children}
+              <Suspense>{children}</Suspense>
             </main>
           </div>
         </CombineProviders>
