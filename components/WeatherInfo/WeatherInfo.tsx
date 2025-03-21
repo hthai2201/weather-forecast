@@ -69,7 +69,7 @@ const WeatherInfo = (props: WeatherInfoProps) => {
           onSelectCity={handleSelectCity}
         />
       </div>
-      <div className="inset-shadow-md flex-1 bg-gradient-to-b from-blue-100 to-blue-50">
+      <div className="inset-shadow-md min-h-0 flex-1 overflow-y-auto bg-gradient-to-b from-blue-100 to-blue-50">
         <div className="mx-auto max-w-100 space-y-2 p-4">
           <CurrentWeatherCard
             currentWeather={currentWeather}

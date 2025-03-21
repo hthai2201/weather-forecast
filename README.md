@@ -2,6 +2,19 @@
 
 A modern weather forecast application built with Next.js and React.
 
+## Deployment
+
+| Environment | URL                                      |
+| ----------- | ---------------------------------------- |
+| Production  | https://weather-forecast-luke.vercel.app |
+
+## Documentation
+
+- [Getting started](./docs/GETTING_STARTED.md)
+- [Tech ecosystem](./docs/TECH_ECOSYSTEM.md)
+- [Editor](./docs/EDITOR.md)
+- [Deployment](./docs/DEPLOYMENT.md)
+
 ## Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with React 19
