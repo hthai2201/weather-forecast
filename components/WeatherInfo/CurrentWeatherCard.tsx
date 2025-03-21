@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { IForecastItem } from '@/types/openWeatherMap';
 import WindDirectionIcon from './WindDirectionIcon';
 import { getWeatherIcon } from '@/utils/openWeatherMap';
+import { Loader2 } from 'lucide-react';
 
 interface CurrentWeatherCardProps {
   currentWeather: IForecastItem | undefined;
@@ -18,7 +19,8 @@ const CurrentWeatherCard = ({
     return (
       <Card className="min-h-50 rounded-lg bg-white shadow-md">
         <CardContent className="flex h-48 flex-col items-center justify-center p-4">
-          Loading weather data...
+          <Loader2 className="mb-3 h-10 w-10 animate-spin text-gray-400" />
+          <p className="text-gray-500">Loading forecast data...</p>
         </CardContent>
       </Card>
     );

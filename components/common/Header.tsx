@@ -47,12 +47,12 @@ const Header = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/history" passHref legacyBehavior>
+              <Link href="/search-history" passHref legacyBehavior>
                 <NavigationMenuLink
                   className={cn(
                     'inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors',
                     'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50',
-                    pathname === '/history' &&
+                    pathname === '/search-history' &&
                       'bg-accent text-accent-foreground font-semibold',
                   )}
                 >

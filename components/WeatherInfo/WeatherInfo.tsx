@@ -58,7 +58,7 @@ const WeatherInfo = (props: WeatherInfoProps) => {
   };
 
   return (
-    <div className="w-full p-4">
+    <div className="flex h-full w-full flex-col">
       <div className="mx-auto max-w-md p-4">
         <LocationSearch
           selectedCity={selectedCity}
@@ -69,7 +69,7 @@ const WeatherInfo = (props: WeatherInfoProps) => {
           onSelectCity={handleSelectCity}
         />
       </div>
-      <div className="inset-shadow-md mx-auto max-w-2xl bg-gradient-to-b from-blue-100 to-blue-50">
+      <div className="inset-shadow-md flex-1 bg-gradient-to-b from-blue-100 to-blue-50">
         <div className="mx-auto max-w-100 space-y-2 p-4">
           <CurrentWeatherCard
             currentWeather={currentWeather}
