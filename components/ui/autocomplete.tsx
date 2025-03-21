@@ -91,7 +91,7 @@ export const AutoComplete = ({
   );
 
   return (
-    <CommandPrimitive onKeyDown={handleKeyDown}>
+    <CommandPrimitive onKeyDown={handleKeyDown} shouldFilter={false}>
       <CommandList>
         <div
           data-slot="command-input-wrapper"

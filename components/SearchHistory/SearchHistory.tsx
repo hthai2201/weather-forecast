@@ -43,9 +43,9 @@ const SearchHistory = () => {
               placeholder="Search city or country"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="bg-white pl-8"
+              className="h-10 bg-white pl-8"
             />
-            <SearchIcon className="absolute top-1/2 left-1.5 h-4 w-4 -translate-y-1/2 transform text-gray-500 peer-focus:text-gray-900" />
+            <SearchIcon className="absolute top-1/2 left-2 h-4 w-4 -translate-y-1/2 transform text-gray-500 peer-focus:text-gray-900" />
           </div>
         </div>
 

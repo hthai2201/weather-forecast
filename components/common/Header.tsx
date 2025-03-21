@@ -56,7 +56,7 @@ const Header = () => {
                       'bg-accent text-accent-foreground font-semibold',
                   )}
                 >
-                  Search history
+                  History
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
